@@ -5,18 +5,15 @@
 ## 4. Appropriately labels the data set with descriptive variable names.
 ## 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-#install reshape2 package if missing
+#install package if missing
 if (!require("data.table")) {
   install.packages("data.table")
 }
 
-if (!require("reshape2")) {
-  install.packages("reshape2")
-}
 
 #load require library
 require("data.table")
-#require("reshape2")
+
 
 #Get the activity labels (walking, sitting etc)
 activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
