@@ -19,9 +19,9 @@ This Code Book describes the files used in the project, and the steps to arrive 
 
 - 'test/y_test.txt': Test labels - 2947 observations.
 
-- `subject_train.txt`: 30 test Subjects, 7352 observations.
+- 'subject_train.txt' : 30 training Subjects, 7352 observations.
 
-- `subject_test.txt`: 30 test Subjects , 2947 observations.
+- 'subject_test.txt': 30 test Subjects , 2947 observations.
 
 
 ### Process Steps
