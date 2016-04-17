@@ -56,9 +56,9 @@ subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt") #load s
 names(subject_test) = "Subject"
 names(subject_train) = "Subject"
 
-#join y_test, y_train with activity labels
-y_test <- merge(y_test, activity_labels, by="Activity_ID")
-y_train <- merge(y_train, activity_labels, by="Activity_ID")
+#combine y_test, y_train with activity labels
+y_test$Activity_Type = activity_labels[y_test[,1],2]
+y_train$Activity_Type = activity_labels[y_train[,1],2]
 
 y_test <- cbind(y_test,Source="TEST")
 y_train <- cbind(y_train,Source="TRAIN")
@@ -75,7 +75,7 @@ test_data <- cbind(subject_test, y_test, X_test)
 Combine_All <- rbind(test_data, train_data)
 
 #melt combined data set to make narrow data set
-melt_interim <- melt(Combine_All, 1:4)
+melt_interim <- melt(Combine_All, id=c("Subject","Activity_ID","Activity_Type","Source"))
 
 tidy_data <- dcast(melt_interim, Subject + Activity_ID ~ variable, mean)
 
