@@ -80,4 +80,4 @@ melt_interim <- melt(Combine_All, id=c("Subject","Activity_ID","Activity_Type","
 tidy_data <- dcast(melt_interim, Subject + Activity_ID ~ variable, mean)
 
 #write the tidy data to a txt file
-write.table(tidy_data, file = "./tidy_data.txt")
+write.table(tidy_data, file = "./tidy_data.txt", row.names = FALSE)
